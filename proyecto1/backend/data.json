@@ -1,0 +1,44 @@
+[
+    {
+        "nombre":"Amigurumi de animales",
+        "imagen":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMoklLsRWl6lGAsVZZN60GPzBI4SnFh4F1wcg4g5_B1JmgV8aGyXKaoXAZCdLmY1_spjd8N6Cbate5tGJqH6d4zpWzTmv6lBEJsEKGWrLZiAx7I2WyjPyUOEjvC70HGHfhME1aOh1v3Ns7aCRYHbM7wy7JBOc124_Nop67IUchSm1e_LxIgI8X1ESL/w640-h640/amigurumis-faciles-de-animales-de-granja-a-crochet-5.webp",
+        "precioBase":"20000",
+        "cantidad": "3",
+        "descripcion":"Quiero dos de elefante y 1 de tortuga"
+    },
+    {
+        "nombre":"Bucket de flores en croshe",
+        "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAgf-IRWhztA6d9tkJGgn_lOkxJeqiAhYIrQ&s",
+        "precioBase":"35000",
+        "cantidad": "1",
+        "descripcion":"Quiero un bucket con rosas de rapunzel"
+    },
+    {
+        "nombre":"Amigurimis de personajes animados",
+        "imagen":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq0C7z5xEs_u_a_lFBwreKvcdagrbYLPGq1g&s",
+        "precioBase":"25000",
+        "cantidad": "2",
+        "descripcion":"Quiero la parejita de los abuelos de up"
+    },
+    {
+        "nombre":"Amigurimi personalizado",
+        "imagen":"https://i.pinimg.com/originals/ba/61/57/ba6157bd488b9c8d9608292126397718.jpg",
+        "precioBase":"40000",
+        "cantidad": "1",
+        "descripcion":"Es un amigurumi mio"
+    },
+    {
+        "nombre":"Pintura personalizado",
+        "imagen":"https://www.sofiabrown.com.co/wp-content/uploads/2023/01/luiscelisoficial-600x600.jpg",
+        "precioBase":"25000",
+        "cantidad": "1",
+        "descripcion":"Lo quiero de 30cm de alto, con fondo blanco"
+    },
+    {
+        "nombre":"Materas personalizadas",
+        "imagen":"https://www.bazzarbog.com/131966-large_default/matera-personalizada-con-mensajes.jpg",
+        "precioBase":"15000",
+        "cantidad": "3",
+        "descripcion":"Las quiero todas con fondo blanco y que cada motivo sea sobre plantas, deben ser diferentes las tres materas"
+    }
+]
