@@ -12,6 +12,8 @@ import dotenv from "dotenv";
 // Variables de entorno -> Guardan informacion a la que no todo el mmundo debe tener acceso
 // Importar conexion a bases de datos
 import { connectionMongo } from "./config/db.js";
+// Importar rutas
+import productsRouter from "./routes/productRoutes.js";
 
 
 // Configurar el uso de nuestro servidor y de nuestras variables de entorno.
@@ -25,6 +27,9 @@ const port = process.env.PORT;
 // conectar a la bd
 connectionMongo();
 
+// Usar las peticiones
+// EL / FUNCIONA COMO EL LOCALHOST
+app.use("/", productsRouter);
 // EJEMPLO DE HACER PETICION
 // app.get(`/`, (req, res)=>{
 //   // DECIRLE QUE DEBE DAR ESA RESPUESTA 
