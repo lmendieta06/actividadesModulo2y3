@@ -1,9 +1,4 @@
 // Crear servidor
-/**
-  1- importar dependencias y modulos necesarios
-
- */
-
 // Importaciones
 // Conexion a servidor (Express)
 import express from "express";
@@ -27,14 +22,14 @@ const port = process.env.PORT;
 // conectar a la bd
 connectionMongo();
 
-// Usar las peticiones
+//  DEBE ESTAR ANTES DE LAS RUTAS
+// Se hará un middleware que es un intermediario entre el servidor y las peticiones
+// Es para qye se puedan leer y enviar datos en formato json
+app.use(express.json());
+
+// Usar las rutas - recibir petciones
 // EL / FUNCIONA COMO EL LOCALHOST
 app.use("/", productsRouter);
-// EJEMPLO DE HACER PETICION
-// app.get(`/`, (req, res)=>{
-//   // DECIRLE QUE DEBE DAR ESA RESPUESTA 
-//   res.send("HOLAAAAA, ESTO ES UNA PETICION A MI SERVIDOR");
-// });
 
 // Pedir que escuche al servidor (ejecutar)
 app.listen(port, ()=>{
