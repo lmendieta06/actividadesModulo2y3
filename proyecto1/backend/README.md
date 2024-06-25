@@ -10,4 +10,5 @@
 - Estructuracion de put, get, post, delete (controlador)
 - Definir rutas (routes)
 - Uso de rutas (app.js)
+- Creacion y uso de CRUD´s
 
