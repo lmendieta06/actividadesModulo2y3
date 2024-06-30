@@ -1,0 +1,31 @@
+footer{
+    width: 100%;
+    background-color: var(--colorContraste);
+    height: 15vh;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
+
+.iconosRedes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.iconosRedes a{
+    text-decoration: none;
+    text-align: center;
+}
+
+.iconosRedes i{
+    color: white;
+    font-size: 20px;
+}
+
+.iconosRedes i:hover{
+    color: var(--colorTextos);
+}
