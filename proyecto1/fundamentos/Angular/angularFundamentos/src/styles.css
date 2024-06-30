@@ -8,4 +8,7 @@
 *{
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    /* Hace que se respeten las medidas que quiero dar */
+    box-sizing: border-box;
 }

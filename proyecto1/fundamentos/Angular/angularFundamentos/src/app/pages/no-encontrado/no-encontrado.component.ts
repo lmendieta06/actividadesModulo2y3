@@ -3,12 +3,12 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { NavegationComponent } from '../../components/navegation/navegation.component';
 
 @Component({
-  selector: 'app-inicio',
+  selector: 'app-no-encontrado',
   standalone: true,
-  imports: [FooterComponent, NavegationComponent],
-  templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.css'
+  imports: [NavegationComponent, FooterComponent],
+  templateUrl: './no-encontrado.component.html',
+  styleUrl: './no-encontrado.component.css'
 })
-export class InicioComponent {
+export class NoEncontradoComponent {
 
 }
