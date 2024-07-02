@@ -23,7 +23,7 @@ main{
 .filtroProductosBtn{
     width: 15%;
     height: 100%;
-    background-color: var(--colorFiltro) ;
+    background-color: var(--colorFiltro);
     border: none;
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -48,6 +48,12 @@ main{
 }
 
 .containerContent{
+    background-color: white;
+    height: 95%;
+}
+
+.containerContent:hover{
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
     height: 100%;
 }
 

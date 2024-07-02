@@ -1,0 +1,178 @@
+/* NAVEGADOR */
+header{
+    width: 100%;
+    height: 15vh;
+    background-color: var(--colorContraste);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.miLista{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20%;
+    padding: 5%;
+}
+
+a{
+    /* border: 2px solid blue; */
+    width: 33%;
+    height: 6vh;
+    text-decoration: none;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a:hover{
+    color: var(--colorTextos);
+}
+
+.inicioBtn{
+    /* border: 2px solid red; */
+    width: 95%;
+    height: 95%;
+    background-color: #F9F8BB;
+    color: var(--colorContraste);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.inicioBtn:hover{
+    width: 100%;
+    height: 100%;
+}
+/* MAIN */
+
+main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.adminTexto{
+    width: 90%;
+    text-align: center;
+}
+
+.adminTexto h3{
+    color: var(--colorTextos);
+    font-family: var(--tipografiaTextos);
+    font-size: 16px;
+    text-decoration: underline;
+}
+
+.adminTexto h1{
+    color: var(--colorRosa);
+    font-family: var(--tipografiaTitulos);
+    font-size: 50px;
+}
+
+/* TABLA */
+
+.containerTabla{
+    width: 90%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerTabla div{
+    width: 100%;
+}
+
+/* BOTONES */
+
+.containerBtns{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    padding-bottom: 20px;
+
+}
+.containerTabla a{
+    width: 25%;
+    text-decoration: none;
+}
+
+.peticionesBtn button{
+    width: 100%;
+    height: 100%;
+    background-color: var(--colorFiltro);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: var(--tipografiaTextos);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* TABLA */
+.containerTabla table{
+    width: 100%;
+    /* HACER QUE LOS BORDES DE CADA ELEMENTO SE COMBINEN CON LAS DEL LADO Y ASI SE MUESTRE SOLO UN BORDE */
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #dddddda5;
+    padding: 8px;
+    text-align: left;
+    font-family: var(--colorTextos);
+}
+
+th {
+    background-color: var(--colorContraste);
+    color: white;
+    text-align: center;
+
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.actions button{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 2px;
+    background-color: var(--colorFiltro);
+    color: white;
+    font-weight: 600;
+    font-size: 20px;
+}
+
