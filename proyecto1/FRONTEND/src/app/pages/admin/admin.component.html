@@ -1,15 +1,23 @@
 <header>
     <nav>
-        <ul class="miLista">
-            <a href="#">Clientes</a>
-            <a href="#">Inventario</a>
-            <a href="#">Ventas</a>
-            <a routerLink="/">
-                <button class="inicioBtn">
-                    <i class="bi bi-door-open"></i>
-                </button>
-            </a>
-        </ul>
+        <ul class="nav nav-underline miLista">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/">Clientes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/catalogo">Inventario</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/catalogo">Ventas</a>
+              </li>
+            <li class="nav-item" >
+                <a routerLink="/" class="nav-item">
+                    <button class="inicioBtn">
+                        <i class="bi bi-door-open"></i>
+                    </button>
+                </a>
+            </li>
+          </ul>
     </nav>
 </header>
 <main>
