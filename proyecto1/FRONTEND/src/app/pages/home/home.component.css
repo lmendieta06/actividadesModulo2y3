@@ -10,11 +10,20 @@ main{
 
 }
 
+.imgContainer{
+    position: relative;
+    width: 500px;
+}
+
+
+
 main h1{
     width: 90%;
     font-family: var(--tipografiaTitulos);
     color: #FADADD;
     font-size: 100px;
+    font-weight: bold;
+    position: absolute;
 }
 
 .textoInicio{
