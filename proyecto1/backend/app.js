@@ -9,7 +9,8 @@ import dotenv from "dotenv";
 import { connectionMongo } from "./config/db.js";
 // Importar rutas
 import productsRouter from "./routes/productRoutes.js";
-
+// Para que sepa que no es nada dañino
+import cors from "cors";
 
 // Configurar el uso de nuestro servidor y de nuestras variables de entorno.
 // SERVIDOR
@@ -26,6 +27,7 @@ connectionMongo();
 // Se hará un middleware que es un intermediario entre el servidor y las peticiones
 // Es para qye se puedan leer y enviar datos en formato json
 app.use(express.json());
+app.use(cors());
 
 // Usar las rutas - recibir petciones
 // EL / FUNCIONA COMO EL LOCALHOST
