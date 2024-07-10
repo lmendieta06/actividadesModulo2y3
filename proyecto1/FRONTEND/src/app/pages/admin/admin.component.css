@@ -97,6 +97,7 @@ main{
     color: var(--colorRosa);
     font-family: var(--tipografiaTitulos);
     font-size: 50px;
+    overflow-y: hidden;
 }
 
 /* TABLA */
@@ -148,6 +149,12 @@ main{
     width: 100%;
     /* HACER QUE LOS BORDES DE CADA ELEMENTO SE COMBINEN CON LAS DEL LADO Y ASI SE MUESTRE SOLO UN BORDE */
     border-collapse: collapse;
+    border-bottom: 100px;
+}
+
+.tablaProductos{
+    border-bottom: 100px;
+    padding-bottom: 100px;
 }
 
 
@@ -182,10 +189,12 @@ th {
 
 td img{
     width: 150px;
+    height: 150px;
 }
 
 .actions {
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

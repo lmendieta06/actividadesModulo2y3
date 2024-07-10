@@ -28,11 +28,11 @@
     
     <section class="containerTabla">
         <div class="containerBtns">
-            <a href="#" class="peticionesBtn">
-                <button>AGREGAR PRODUCTOS</button>
+            <a class="peticionesBtn">
+                <button type="button" (click)="agregarProducto()">AGREGAR PRODUCTOS</button>
             </a>
         </div>
-        <div>
+        <div class="tablaProductos">
             <table>
                 <thead>
                     <tr>
@@ -44,24 +44,24 @@
                 </thead>
                 <tbody>
                     <!-- DEFINE UNA FILA -->
-                    <tr class="productos">
+                    <tr class="productos" *ngFor="let producto of allProducts">
                         <!-- DEFINE UNA COLUMNA -->
                         <td class="tdContenido">
-                            <p>Nombre</p>
+                            <p>{{producto.nombre}}</p>
                         </td>
                         <td class="tdContenido">
-                            <img src="assets/products/animales.png" alt="animales">
+                            <img src="{{producto.imagen}}" alt="animales">
 
                         </td>
 
                         <td class="tdContenido">
-                            <p>precio</p>
+                            <p>{{producto.precioBase}}</p>
                         </td>
                         <td class="actions tdContenido">
-                            <button>
+                            <button type="button" (click)="eliminarProducto(producto._id)">
                                 <i class="bi bi-trash3"></i>
                             </button>
-                            <button>
+                            <button type="button" (click)="guardarProductoActualizar(producto)">
                                 <i class="bi bi-arrow-clockwise"></i>
                             </button>
                         </td>
@@ -71,4 +71,48 @@
             </table>
         </div>
     </section>
+
+    
+<div *ngIf="isAdding">
+    <h3 class="text-center">AGREGANDO NUEVO PRODUCTO</h3>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control"  name="nombre"
+        placeholder="Ingrese el nombre del producto"  [(ngModel)]="nombre"/>
+    </div>
+    <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen</label>
+        <input type="text" class="form-control" placeholder="Ingrese el url de la imagen"  name="imagen" [(ngModel)]="imagen"/>
+    </div>
+    <div class="mb-3">
+        <label for="precioBase" class="form-label">Precio</label>
+        <input type="number" class="form-control" placeholder="Ingrese el precio del producto"  name="precioBase" [(ngModel)]="precioBase"/>
+    </div>
+    
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary mb-3" (click)="agregarProducto()">Crear Producto</button>
+    </div>
+</div>
+
+<div *ngIf="isUpdating">
+    <h3 class="text-center">ACTUALIZAR PRODUCTO</h3>
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control"  name="nombre"
+        placeholder="Ingrese el nombre del producto"  [(ngModel)]="nombre"/>
+    </div>
+    <div class="mb-3">
+        <label for="imagen" class="form-label">Imagen</label>
+        <input type="text" class="form-control" placeholder="Ingrese el url de la imagen"  name="imagen" [(ngModel)]="imagen"/>
+    </div>
+    <div class="mb-3">
+        <label for="precioBase" class="form-label">Precio</label>
+        <input type="number" class="form-control" placeholder="Ingrese el precio del producto"  name="precioBase" [(ngModel)]="precioBase"/>
+    </div>
+    
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary mb-3" (click)="actualizarProducto()">CONFIRMAR</button>
+    </div>
+</div>
 </main>
+
