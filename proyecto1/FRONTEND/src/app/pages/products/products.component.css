@@ -5,6 +5,8 @@ main{
     align-items: center;
     padding: 10px;
     overflow-y: auto;
+    border-bottom: 200px;
+    padding-bottom: 150px;
 }
 
 .filtroProductos{
@@ -44,12 +46,26 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 350px;
+    text-align: center;
+    overflow-y: hidden;
 }
 
 .containerContent{
     background-color: white;
     height: 95%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.containerContent img{
+    width: 150px;
+    text-align: center;
+    height: 40%;
+    overflow-y: hidden;
 }
 
 .containerContent:hover{
@@ -62,6 +78,8 @@ main{
     color: var(--colorRosa);
     font-weight: 1000;
     font-size: 20px;
+    height: 20%;
+    border-top: 10px;
 }
 
 .containerContent p{
@@ -69,13 +87,19 @@ main{
     font-size: 24px;
     color: var(--colorTextos);
     font-weight: 600;
+    overflow-y: hidden;
+
 }
 
+.precioBoton{
+    overflow-y: hidden;
+}
 .agregarBtn{
     background-color: var(--colorContraste2);
     border: none;
     color: white;
     font-weight: bold;
     font-family: var(--tipografiaTextos);
-    height: 40px;
+    font-size: 15px;
+    overflow-y: hidden;
 }
