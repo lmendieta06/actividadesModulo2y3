@@ -3,10 +3,10 @@
         <div class="containerForms">
             <a routerLink="/"><button class="regresarBtn"><i class="bi bi-arrow-left-short"></i></button></a>
             <h1>BIENVENIDO</h1>
-            <form action="" class="formularioUser">
-                <input type="text" name="user" id="user" placeholder="Usuario" class="user">
-                <input type="password" name="password" id="password" placeholder="Contraseña" class="password">
-                <button type="submit" class="enviarForms">INICIAR SESION</button>
+            <form action="iniciarSesion()" class="formularioUser">
+                <input type="text" name="user" id="user" placeholder="Usuario" class="user" [(ngModel)]="usuario">
+                <input type="password" name="password" id="password" placeholder="Contraseña" class="password" [(ngModel)]="contrasena">
+                <button type="submit" class="enviarForms" (click)="iniciarSesionAdmin()">INICIAR SESION</button>
             </form>
         </div>
     </section>
