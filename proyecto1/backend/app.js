@@ -24,9 +24,10 @@ const port = process.env.PORT;
 connectionMongo();
 
 //  DEBE ESTAR ANTES DE LAS RUTAS
-// Se hará un middleware que es un intermediario entre el servidor y las peticiones
 // Es para qye se puedan leer y enviar datos en formato json
 app.use(express.json());
+
+// Se hará un middleware que es un intermediario entre el servidor y las peticiones
 app.use(cors());
 
 // Usar las rutas - recibir petciones
