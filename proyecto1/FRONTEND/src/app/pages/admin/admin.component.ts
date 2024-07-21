@@ -4,16 +4,18 @@ import { RouterLinkActive } from '@angular/router';
 import { ProductsService } from '../../services/products.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { AddProductModalComponent } from '../../components/add-product-modal/add-product-modal.component';
+import { UpdateProductModalComponent } from '../../components/update-product-modal/update-product-modal.component';
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule, FormsModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, FormsModule, AddProductModalComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css'
 })
 export class AdminComponent {
   productsService = inject(ProductsService);
+  updateModal = inject(UpdateProductModalComponent);
 
   allProducts : any [] = [];
   isAdding : boolean = false;
@@ -42,22 +44,8 @@ export class AdminComponent {
     this.obtenerProductos();
   }
 
-  agregarProducto(){
+  agregarProductoModal(){
     this.isAdding = true;
-
-    this.productsService.postProduct(this.nombre,this.imagen, this.precioBase).subscribe((req:any)=>{
-      if(req){
-        alert("Elemento agregado satisfactoriamente");
-        this.isAdding = false;
-        this.nombre = "";
-        this.imagen = "";
-        this.precioBase = 0;
-        this.obtenerProductos();
-      }else{
-        console.error("Hubo un error");
-        this.isAdding=false;
-      }
-    })
   }
 
   eliminarProducto(id:string){
