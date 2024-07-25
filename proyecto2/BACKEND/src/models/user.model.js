@@ -23,5 +23,5 @@ const userSchema = new mongoose.Schema({
 });
 
 // Nombre coleccion - esquema
-export const userModel = mongoose.model("Usuario", userShema);
+export const userModel = mongoose.model("Usuario", userSchema);
 

@@ -6,6 +6,10 @@ import dotenv from "dotenv";
 import cors from "cors";
 // Conexion a la bd
 import { connectionMongo } from "./config/db.js";
+// Importar rutas usuario
+import userRouter from "./routes/user.routes.js";
+// Importar rutas administrador
+import adminRouter from "./routes/admin.routes.js";
 
 // CONFIGURACION SERVIDOR
 const app = express();
@@ -13,14 +17,22 @@ const app = express();
 dotenv.config();
 // LOS CORS SON MIDDLEWARE
 app.use(cors());
-// CONEXION A LA BASE DE DATOS
-connectionMongo();
+
 // CREAR LA VARIABLE DEL PUERTO
 // Decirle que si algo pasa con el puerto asignado, use la otra opcion
 // const port = process.env.PORT_1 || process.env.PORT_2;
 
 // TERNARIOS (CONDICIONALES DE UNA SOLA LINEA)
 const port = process.env.PORT_1? process.env.PORT_1 : 6000;
+
+// CONEXION A LA BASE DE DATOS
+connectionMongo();
+
+// Usar las rutas
+// Esta es la ruta madre de usuarios
+app.use("/users", userRouter);
+// Esta es la ruta madre de administrador
+app.use("/admin", adminRouter);
 
 // PEDIR QUE LO ESCUCHE
 app.listen(port, ()=>{
