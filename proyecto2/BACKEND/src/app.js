@@ -28,6 +28,8 @@ const port = process.env.PORT_1? process.env.PORT_1 : 6000;
 // CONEXION A LA BASE DE DATOS
 connectionMongo();
 
+// Especificar que se van a enviar y se deben recibir archivos .json
+app.use(express.json());
 // Usar las rutas
 // Esta es la ruta madre de usuarios
 app.use("/users", userRouter);
