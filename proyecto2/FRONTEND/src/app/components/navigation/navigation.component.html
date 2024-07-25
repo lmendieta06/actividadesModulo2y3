@@ -60,11 +60,11 @@
 
   <!-- Login -->
    <div *ngIf="isVisibleLogin">
-    <app-login></app-login>
+    <app-login [toggleRegister]="toggleRegister.bind(this)"></app-login>
    </div>
 
    <!-- Register -->
-
+   <!-- El bind se usa para enviar el this ENLAZADO a la funcion -->
    <div *ngIf="isVisibleSignIn">
-    <app-register></app-register>
+    <app-register [toggleLogin]="toggleLogin.bind(this)"></app-register>
    </div>

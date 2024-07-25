@@ -17,7 +17,7 @@ export class NavigationComponent {
   isVisibleSignIn: boolean = false;
 
   // Hace referencia a un cambio de estado
-  toggleLogin(){
+  toggleLogin() {
     
     this.isVisibleLogin = !this.isVisibleLogin;
 
