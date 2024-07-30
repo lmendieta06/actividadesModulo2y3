@@ -31,24 +31,132 @@ export const postUser = async(req, res)=>{
 
 // Mostrar todos los usuarios
 export const getUsers = async(req, res)=>{
-    return res.send("Funciona la peticion get de los usuarios");
+    try{
+        let users = await userModel.find();
 
+        if(users.length === 0){
+            return res.status(200).json({message: "No se encontraron usuarios registrados"});
+        }
+
+        return res.status(200).json({
+            estado : 200,
+            mensaje: "Se encontraron todos los usuarios",
+            cantidad: users.length,
+            users
+        })
+    }catch(error){
+        return res.status(404).json({
+            message: "Hubo un error al hacer la peticion" + error.message
+        })
+    }
 }
 
 // Mostrar solo un usuario
 export const getUserById = async(req, res)=>{
-    return res.send("Funciona la peticion get de un solo usuarios");
+    try{
 
+        // Requiere el id del usuario
+        // El id debe ser llamado igual a como esta escrito en la db
+        let idUser = req.params._id;
+
+        if(idUser.length !== 24){
+            return res.status(204).json({
+                estado : 204,
+                mensaje : "Se debe ingresar un Id valido"
+            })
+        }
+
+        // 1. Dar la variable donde se recibe el id
+        // 2. Pedirle que me envie el cuerpo de esa peticion
+        let user = await userModel.findById(idUser);
+
+        if(!user){
+            return res.status(200).json({
+                estado : 200,
+                mensaje : "No se encontro el usuario que necesita"
+            })
+        }
+
+        return res.status(200).json({
+            estado : 200,
+            mensaje : "Se encontro el siguiente usuario",
+            usuario : user
+        })
+
+    }catch(error){
+        return res.status(404).json({
+            message: "No se pudo realizar la peticion " + error.message
+        })
+    }
 }
 
 // Actualizar usuario
 export const putUserById = async(req, res)=>{
-    return res.send("Funciona la peticion put de usuarios");
 
+    try{
+        let idUpdate = req.params._id;
+        // Se debe poder recibir informacion
+        const dataForUpdate = req.body;
+
+        let userUpdate = await userModel.findByIdAndUpdate(idUpdate, dataForUpdate);
+    
+        if(!userUpdate){
+            return res.status(200).json({
+                estado : 200,
+                mensaje : "No se encontro el usuario para actualizar"
+            })
+        }
+
+        if(idUpdate.length !== 24){
+            return res.status(404).json({
+                estado : 404,
+                mensaje : "No se ingreso el id necesario "
+            })
+        }
+
+        return res.status(200).json({
+            estado : 200,
+            mensaje : "Se actualizo correctamente el usuario",
+            dato : userUpdate._id
+        })
+        
+    }catch(error){
+        return res.status(404).json({
+            message: "No se pudo realizar la peticion " + error.message
+        })
+    }
+    
 }
 
 // Actualizar usuario
 export const deleteUserById = async(req, res)=>{
-    return res.send("Funciona la peticion delete de usuarios");
+    try{
+        let idDelete = req.params._id;
+        let userDelete = await userModel.findByIdAndDelete(idDelete);
 
+            
+        if(!userDelete){
+            return res.status(200).json({
+                estado : 200,
+                mensaje : "No se encontro el usuario para eliminar"
+            })
+        }
+
+        if(userDelete === "Admin"){
+            return res.status(401).json({
+                Mensaje : "No se puede eliminar adminstradores desde el panel usuarios"
+            })
+        }
+
+        return res.status(200).json({
+            estado : 200,
+            mensaje : "Se elimino correctamente el usuario",
+            usuarioEliminado : userDelete.nombre
+        })
+
+    }catch(error){
+        return res.status(404).json({
+            message: "No se pudo realizar la peticion " + error.message
+        })
+    }
 }

@@ -35,12 +35,49 @@ export const postAdmin = async(req, res)=>{
 
 // Mostrar todos los administradores
 export const getAdmins = async(req, res)=>{
-    return res.send("Funciona la peticion get de administradores");
+    try{
+        let admins = await adminModel.find();
 
+        if(admins.length === 0){
+            return res.status(200).json({message: "No se encontraron administradores registrados"});
+        }
+
+        return res.status(200).json({
+            estado : 200,
+            mensaje: "Se encontraron todos los administradores",
+            cantidad: admins.length,
+            admins
+        })
+    }catch(error){
+        return res.status(404).json({
+            message: "Hubo un error al hacer la peticion " + error.message
+        })
+    }
 }
 
 // Eliminar admin
 export const deleteAdminById = async(req, res)=>{
-    return res.send("Funciona la peticion delete de admin");
+    try{
+        let idDelete = req.params._id;
+        let adminDelete = await adminModel.findByIdAndDelete(idDelete);
 
+            
+        if(!adminDelete){
+            return res.status(200).json({
+                estado : 200,
+                mensaje : "No se encontro el administrador para eliminar"
+            })
+        }
+
+        return res.status(200).json({
+            estado : 200,
+            mensaje : "Se elimino correctamente el administrador",
+            usuarioEliminado : adminDelete.nombre
+        })
+
+    }catch(error){
+        return res.status(404).json({
+            message: "No se pudo realizar la peticion " + error.message
+        })
+    }
 }
