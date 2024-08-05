@@ -3,6 +3,7 @@ import {Router} from "express";
 // Importar los controladores de usuario
 import { getUsers, getUserById, postUser, deleteUserById, putUserById } from "../controllers/userController.js";
 
+import { auth } from "../middlewares/auth.js";
 // Configurar el router
 const userRouter = Router();
 
@@ -10,15 +11,15 @@ const userRouter = Router();
 // El _id no tiene que ser asi necesariamente, puede escribirse normal, es una guía.
 
 // Estas peticiones vienen de express, con Router
-userRouter.get("/", getUsers);
+userRouter.get("/", auth(), getUsers);
 
-userRouter.get("/:_id", getUserById);
+userRouter.get("/:_id", auth(),getUserById);
 
 userRouter.post("/", postUser);
 
-userRouter.delete("/:_id", deleteUserById);
+userRouter.delete("/:_id", auth(),deleteUserById);
 
-userRouter.put("/:_id", putUserById);
+userRouter.put("/:_id", auth(),putUserById);
 
 // Se importa en app.js
 export default userRouter;

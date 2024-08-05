@@ -10,6 +10,7 @@ import { connectionMongo } from "./config/db.js";
 import userRouter from "./routes/user.routes.js";
 // Importar rutas administrador
 import adminRouter from "./routes/admin.routes.js";
+import { routerLogin } from "./routes/login.routes.js";
 
 // CONFIGURACION SERVIDOR
 const app = express();
@@ -35,6 +36,8 @@ app.use(express.json());
 app.use("/users", userRouter);
 // Esta es la ruta madre de administrador
 app.use("/admin", adminRouter);
+// Ruta para generar token
+app.use("/login", routerLogin);
 
 // PEDIR QUE LO ESCUCHE
 app.listen(port, ()=>{

@@ -1,7 +1,13 @@
 // Dependencia que nos permite usar
 import jwt from "jsonwebtoken";
+
+// Para que funcione debe tener acceso a las variables de entorno
+import dotenv from "dotenv";
+dotenv.config();
+
 // Configurar la contraseña de jws
 const secretKey = process.env.CONTRASENA_JWS;
+
 
 // Generar funciones de generar y verificar token
 // No son promesas, por lo que no necesitan ser async pero es mejor hacerlo para poder mejorar flujo de la informacion
@@ -18,7 +24,7 @@ export function generateToken(payload){
             // Validar si hay error al crear token
 
             if(error){
-                reject(new Error("Error al generar jsonwebtoken", error.message));
+                reject(new Error("Error al generar jsonwebtoken " + error.message));
             }else{
                 resolve(token);
             }
@@ -36,7 +42,7 @@ export function verifyToken(token){
             // Validar si se decodifico el token correctamente
             
             if(error){
-                reject(new Error("Error al decodificar jsonwebtoken", error.message));
+                reject(new Error("Error al decodificar jsonwebtoken" + error.message));
             }else{
                 resolve(decoded);
             }
