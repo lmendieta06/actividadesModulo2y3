@@ -17,9 +17,9 @@ userRouter.get("/:_id", auth(),getUserById);
 
 userRouter.post("/", postUser);
 
-userRouter.delete("/:_id", auth(),deleteUserById);
+userRouter.delete("/:_id", auth("admin"),deleteUserById);
 
-userRouter.put("/:_id", auth(),putUserById);
+userRouter.put("/:_id", auth("admin"),putUserById);
 
 // Se importa en app.js
 export default userRouter;

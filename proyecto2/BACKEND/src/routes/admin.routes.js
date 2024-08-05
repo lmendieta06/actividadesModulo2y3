@@ -8,10 +8,10 @@ const adminRouter = Router();
 
 // Crear rutas
 
-adminRouter.get("/", auth(), getAdmins);
+adminRouter.get("/", auth("admin"), getAdmins);
 
 adminRouter.post("/", postAdmin);
 
-adminRouter.delete("/:_id", auth(), deleteAdminById);
+adminRouter.delete("/:_id", auth("admin"), deleteAdminById);
 
 export default adminRouter;
