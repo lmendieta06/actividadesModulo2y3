@@ -1,7 +1,7 @@
 // Crear, mostrar, eliminar
 
 import { adminModel } from "../models/admin.model.js";
-
+import bcrytp from "bcryptjs";
 // Crear  administrador
 export const postAdmin = async(req, res)=>{
     try{
@@ -9,10 +9,17 @@ export const postAdmin = async(req, res)=>{
         const {nombre, correoElectronico, contrasena} = req.body;
         // El await es para indicar que debe esperar una respuesta
         // Lo que hace es detenerse en esta linea de codigo, esperar la respuesta y al obtenerla sigue con el resto de lineas
+
+        // -------------- Voy a tomar la contraseña del cuerpo de la peticion y la voy a encriptar.
+
+        // Debe ser asincronico para que se haga y no pare el resto de cosas.
+        // Se debe pasar la contraseña y salt rounds que define el nivel de encriptacion -> Usualmente se usa el 10 para no comprometer el nivel de rendimiento
+        const codedPassword = await bcrytp.hash(contrasena, 10);
+        // Cree el admin con la contraseña encriptada
         const newAdmin = await adminModel.create({
             nombre,
             correoElectronico, 
-            contrasena,
+            contrasena:codedPassword,
             // Asegurarse de que DEBE ser true para que sea admin
             categoriaAdmin:true
         });

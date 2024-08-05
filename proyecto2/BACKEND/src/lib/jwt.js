@@ -13,12 +13,12 @@ export function generateToken(payload){
         // Para generar el token se necesita la clave, el payload, tiempo se expiracion de token
         // Crear la firma
         // El expire es la duracion del token, en este caso una hora
-        jwt.sign(payload, secretKey, {expiresIn: "1h"}, (token, error)=>{
+        jwt.sign(payload, secretKey, {expiresIn: "1h"}, (error, token)=>{
             // Manejo de errores en la funcion creada
             // Validar si hay error al crear token
 
             if(error){
-                reject(new Error("Error al generar jsonwebtoken", message.error));
+                reject(new Error("Error al generar jsonwebtoken", error.message));
             }else{
                 resolve(token);
             }
@@ -31,12 +31,12 @@ export function verifyToken(token){
     // Tambien se crea como una promesa, para que maneje el flujo de usuarios
 
     return new Promise((resolve, reject)=>{
-        jwt.verify(token, secretKey, (decoded, error)=>{
+        jwt.verify(token, secretKey, (error, decoded)=>{
             // Manejar errores
             // Validar si se decodifico el token correctamente
             
             if(error){
-                reject(new Error("Error al decodificar jsonwebtoken", message.error));
+                reject(new Error("Error al decodificar jsonwebtoken", error.message));
             }else{
                 resolve(decoded);
             }

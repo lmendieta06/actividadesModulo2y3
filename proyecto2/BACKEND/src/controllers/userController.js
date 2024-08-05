@@ -1,17 +1,29 @@
 // Crear, Actualizar y Eliminar usuarios, 
 // poder visualizar todos mis usuarios o un solo usuario
 import { userModel } from "../models/user.model.js";
-
+import bcrytp from "bcryptjs";
 // Crear  usuario
 export const postUser = async(req, res)=>{
 
     // No se hara el if porque esa condicion ya se evalua en el modelo
 
-    try{
-        // El await es para indicar que debe esperar una respuesta
-        // Lo que hace es detenerse en esta linea de codigo, esperar la respuesta y al obtenerla sigue con el resto de lineas
-        const newUser = await userModel.create(req.body);
 
+    try{
+
+        const {nombre, correoElectronico, contrasena, imagenPerfil} = req.body;
+        // El await es para indicar que debe esperar una respuesta
+
+        // Se debe pasar la contraseña y salt rounds que define el nivel de encriptacion -> Usualmente se usa el 10 para no comprometer el nivel de rendimiento
+        const codedPassword = await bcrytp.hash(contrasena, 10);
+
+        // Lo que hace es detenerse en esta linea de codigo, esperar la respuesta y al obtenerla sigue con el resto de lineas
+        const newUser = await userModel.create({
+            nombre,
+            correoElectronico, 
+            contrasena:codedPassword,
+            imagenPerfil
+        });
+        
         // Debe ser 201 porque este dice que esta creado
         // Al crearlo lo va a mostrar en consola
         return res.status(201).json({
